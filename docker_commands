@@ -1,0 +1,19 @@
+## Docker commands used to build the application 
+# docker build -t techtrends .
+
+## Docker commands used to run the application
+# docker run --name techtrends -p 7111:3111 techtrends
+
+## Docker commands used to get the application logs
+# docker exec -it techtrends cat app.log
+
+## Logs from the container running the TechTrends application
+2021-09-25 16:03:16,889 INFO      * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+2021-09-25 16:05:04,271 DEBUG    Getting all posts..
+2021-09-25 16:05:04,271 DEBUG    Connection to the database..
+2021-09-25 16:05:04,370 INFO     172.17.0.1 - - [25/Sep/2021 16:05:04] "GET / HTTP/1.1" 200 -
+2021-09-25 16:05:04,429 INFO     172.17.0.1 - - [25/Sep/2021 16:05:04] "GET /static/css/main.css HTTP/1.1" 200 -
+2021-09-25 16:05:04,493 INFO     172.17.0.1 - - [25/Sep/2021 16:05:04] "GET /favicon.ico HTTP/1.1" 404 -
+2021-09-25 17:47:38,437 DEBUG    Getting all posts..
+2021-09-25 17:47:38,437 DEBUG    Connection to the database..
+2021-09-25 17:47:38,440 INFO     172.17.0.1 - - [25/Sep/2021 17:47:38] "GET / HTTP/1.1" 200 -
