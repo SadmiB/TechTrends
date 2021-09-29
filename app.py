@@ -95,7 +95,7 @@ def get_posts_count():
 
 
 # staus
-@app.route("/status")
+@app.route("/healthz")
 def status():
 
     logger.debug(f" /status endpoint reached..")
