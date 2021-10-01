@@ -98,13 +98,24 @@ def get_posts_count():
 @app.route("/healthz")
 def status():
 
-    logger.debug(f" /status endpoint reached..")
+    logger.debug(f" /healthz endpoint reached..")
 
-    response = app.response_class(
-        response = json.dumps({"result:": "OK - healthy"}),
-        status=200,
-        mimetype='application/json'
-    )
+    try:
+        connection = get_db_connection()
+        posts = connection.execute('SELECT * FROM posts').fetchall()
+        connection.close()
+        response = app.response_class(
+          response = json.dumps({"result:": "OK - healthy"}),
+          status=200,
+          mimetype='application/json'
+        )
+    except:
+        response = app.response_class(
+          response = json.dumps({"result:": "ERROR - unhealthy"}),
+          status=200,
+          mimetype='application/json'
+        )
+ 
 
     return response
 
