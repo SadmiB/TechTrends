@@ -4,6 +4,9 @@ namespace:
 service:
   port: 7111
 
+image:
+  pullPolicy: Always
+
 replicaCount: 5
 
 resources:
