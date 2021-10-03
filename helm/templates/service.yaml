@@ -8,13 +8,13 @@ metadata:
 spec:
   ports:
   - name: techtrends
-    port: {{.Values.service.port}}
-    protocol: {{.Values.service.protocol}}
-  **{{- if .Values.service.targetPort }}
-    targetPort: {{.Values.service.targetPort}}
-  **{{- else }}
-    targetPort: .Values.service.port
-  **{{- end }}
+    port: {{ .Values.service.port }}
+    protocol: {{ .Values.service.protocol }}
+    {{- if .Values.service.targetPort }}
+    targetPort: {{ .Values.service.targetPort }}
+    {{- else }}
+    targetPort: {{ .Values.service.targetPort }}
+    {{- end }}
   selector:
     app: techtrends
-  type: {{.Values.service.type}}
+  type: {{ .Values.service.type }}
